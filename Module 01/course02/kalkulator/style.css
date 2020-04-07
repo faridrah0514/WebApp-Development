@@ -1,0 +1,39 @@
+.all {
+    width: 80%;
+    margin: 0 auto 0 auto;
+    /* background-color: beige; */
+    background-color: cornflowerblue;
+
+}
+
+.container {
+    width: fit-content;
+    display: block;
+    align-items: center;
+    margin: 0 auto;
+}
+
+h1 {
+    text-align: center;
+}
+.hasil {
+    background-color: grey;
+    color: aqua;
+    height: fit-content;
+    text-align: center;
+}
+
+.tombol {
+    width: fit-content;
+    border: 2px solid red;
+}
+
+button {
+    width: 60px;
+    background-color: antiquewhite;
+}
+
+button {
+    margin: 2px;
+}
+
