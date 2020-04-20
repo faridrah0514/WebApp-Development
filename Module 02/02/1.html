@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script> -->
+    <title>Document</title>
+</head>
+<body>
+    <h1>Hello mas</h1>
+
+    
+    <div id="test">
+        <h2>{{ message }}</h2>
+        <h2 v-bind:style='gaya'>Halo Halo bandung</h2>
+        <input type="text" v-model='dada'>
+        <h2>ini adalah dada {{ dada }}</h2>
+        <button v-on:click='diklik'>Hai</button>
+        <p>ini adalah list ikan</p>
+        <input v-model='tambah_ikan'><button v-on:click='tambahIkan'>tambah ikan</button>
+        <h2>{{ tambah_ikan }}</h2>
+        <ul>
+            <li v-for="ikan in ikans">{{ ikan }}</li>
+        </ul>
+        <h3>{{ jumlah_ikan }}</h3>
+
+        <temp-component
+            v-for='ikan in ikans'
+            v-bind:test='ikan'
+        ></temp-component>
+        
+
+    </div>
+
+    <!-- <script src="skrip.js"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        Vue.component("temp-component", {
+            props: ['test'],
+            data: function(){
+                return {
+                    count: 0
+                }
+            },
+            template: `
+            <div>
+                <ul>
+                    <li>{{ test }}</li>
+                </ul>
+            </div>
+
+            `
+        })
+
+        var app = new Vue({
+            el: '#test',
+            data:{
+                message: "hello world",
+                gaya: {
+                    color: 'green',
+                    padding: '20px'
+                },
+                dada: '',
+                ikans: ['gurame', 'emas', 'bawal', 'lele'],
+                tambah_ikan: '',
+                jumlah_ikan: '',
+                coba_dulu: "ini adalah coba dulu"
+            },
+            methods: {
+                diklik: function() {
+                    this.message="tombolnya di pencet"
+                    this.gaya['background'] = 'black'
+                },
+                tambahIkan: function(){
+                    this.ikans.push(this.tambah_ikan)
+                    this.tambah_ikan = ''
+                    this.jumlah_ikan ++
+                }
+            },
+            created() {
+                this.jumlah_ikan = this.ikans.length
+            },
+        })
+    </script>
+</body>
+</html>
